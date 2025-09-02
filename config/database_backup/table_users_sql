@@ -1,0 +1,28 @@
+--create table users
+create table users(
+         id BIGSERIAL PRIMARY key, 
+        Firstname VARCHAR(30) NOT NULL,
+        LASTNAME VARCHAR(30) NOT NULL,
+        mobil_number VARCHAR(20) NOT NULL,
+        ider_number  VARCHAR(15) NULL,
+        address TEXT NULL,
+        brithday DATE NULL,
+        email VARCHAR (200) NOT NULL UNIQUE,
+        password TEXT NOT NULL,
+        status BOOLEAN NOT NULL DEFAULT TRUE,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+        updated_at  TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+        deleted_at  TIMESTAMPTZ NOT NULL   
+);
+
+--insert into data users
+insert into users  (
+            firstname,
+            lastname,
+            mobile_number,
+            email,
+            password)
+
+VALUES ('Johan c','ayala','3005658989','joan@',3251421)
+                 
+);
