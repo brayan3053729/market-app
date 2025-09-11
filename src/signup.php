@@ -1,13 +1,16 @@
     <?php
-    //step1
+    //step1.get batabase connection
     require('../config/database.php');
-    //step2
+
+    //step2.get 
     $f_name = $_POST['fname'];
     $l_name = $_POST['lname'];
     $m_number = $_POST['mnumber'];
     $id_number= $_POST['idnumber'];
     $e_mail = $_POST['email'];
     $p_wd = $_POST['passwd'];
+
+    $enc_pass = password_hash($p_wd,PASSWORD_DEFAULT);
     
     //step3
     $query = "
@@ -24,7 +27,7 @@
                 '$m_number', 
                 '$id_number', 
                 '$e_mail', 
-                '$p_wd'
+                '$enc_pass'
                 ) "; 
     //step4
     $res = pg_query($conn,$query);
