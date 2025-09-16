@@ -12,32 +12,51 @@
 
     $enc_pass = password_hash($p_wd,PASSWORD_DEFAULT);
     
-    //step3
-    $query = "
-        INSERt INTO users (
-            firstname,
-            lastname,
-            mobil_number,
-            ider_number,
-            email,
-            password
-            ) VALUES (
-                '$f_name',
-                '$l_name', 
-                '$m_number', 
-                '$id_number', 
-                '$e_mail', 
-                '$enc_pass'
-                ) "; 
-    //step4
-    $res = pg_query($conn,$query);
-
-    //step5
-    if($res){
-        echo "user has been created successfully !!!";
+    $check_email = "
+        select
+            u.email 
+        FROM
+            users u
+        WHERE
+            email = '$e_mail' or ider_number =' $id_number'
+        LIMIT 1            
+    ";
+     $res = pg_query($conn,$check_email);
+    if (pg_num_rows($res_check) > 0){
+       echo"<script>alert('user already existts !! ')</script>";+
+        header ('refresh:0;url=signin.html');  
     }else{
-        echo "somenthing wrong!";
-    }
+    //step3
+        $query = "
+            INSERt INTO users (
+                firstname,
+                lastname,
+                mobil_number,
+                ider_number,
+                email,
+                password
+                ) VALUES (
+                    '$f_name',
+                    '$l_name', 
+                    '$m_number', 
+                    '$id_number', 
+                    '$e_mail', 
+                    '$enc_pass'
+                    ) "; 
+        //step4
+        $res = pg_query($conn,$query);
+
+        //step5
+        if($res){
+            //echo "user has been created successfully !!!";
+            echo"<script>alert('succes !!! fo to  login')</script>";+
+            header ('refresh:0;url=signin.html');
+        }else{
+            echo "somenthing wrong!";
+        }
+        }
+
+    
     
     ?>
   
