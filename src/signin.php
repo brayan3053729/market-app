@@ -8,7 +8,7 @@
 
     //Step 3. query
     $sql_check_user = "
-        select 
+     select 
         u.email,
         u.password
     from 
