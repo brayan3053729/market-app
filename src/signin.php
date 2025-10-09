@@ -21,7 +21,7 @@
         u.password = '$enc_pass'
     limit 1
     ";
-     $res_check = pg_query($conn, $sql_check_user);
+     $res_check = pg_query($conn_supa, $sql_check_user);
       if (pg_num_rows($res_check) > 0){
        //echo "user exists. go to mail page !!!!";
         header ('refresh:0;url=main.php'); 
