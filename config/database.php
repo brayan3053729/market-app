@@ -3,7 +3,7 @@
 
     $supa_host       =    "aws-1-us-east-1.pooler.supabase.com";
     $supa_user       =    "postgres.fthjmiuzksfubmhlkdny";
-    $supa_password   =    "unicesmag--";
+    $supa_password   =    "unicesmag..";
     $supa_dbname     =    "postgres";
     $supa_port       =    "6543";
 
