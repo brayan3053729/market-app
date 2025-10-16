@@ -1,19 +1,19 @@
 <?php
 $host = "localhost";
-$user = "";
-$pass = "unicesmag";
+$user = "root";
+$pass = "";
 $db   = "market-app"; 
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) { die("Conexión fallida: " . $conn->connect_error); }
 
 $name = $_POST['name'];
-$country_id = $_POST['country_id'];
+$region_id = $_POST['region_id'];
 
-$sql = "INSERT INTO regions (name, country_id) VALUES ('$name','$country_id')";
+$sql = "INSERT INTO cities (name, region_id) VALUES ('$name','$region_id')";
 
 if ($conn->query($sql) === TRUE) {
-    echo " Región registrada correctamente";
+    echo " Ciudad registrada correctamente";
 } else {
     echo " Error: " . $conn->error;
 }
