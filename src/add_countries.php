@@ -1,29 +1,29 @@
 <?php
-// Conexión directa a la base de datos
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "market-app"; 
+    //step1.get batabase connection
+    require('../config/database.php');
 
-$conn = new mysqli($host, $user, $pass, $db);
+    //step2.get  form-data
+    $e_mail =trim($_POST['email']);
+    $p_wd = $_POST['passwd'];
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+    //$enc_pass = password_hash($p_wd,PASSWORD_DEFAULT);
+    $enc_pass = md5($p_wd);
 
-// Obtener datos del formulario
-$name = $_POST['name'];
-$abbr = $_POST['abbr'];
-$code = $_POST['code'];
-
-// Insertar en la tabla countries
-$sql = "INSERT INTO countries (name, abbr, code) VALUES ('$name', '$abbr', '$code')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "País registrado correctamente";
-} else {
-    echo "Error: " . $conn->error;
-}
-
-$conn->close();
-?>
+    //Step 3. query
+    $sql_check_user = "
+     select 
+        u.email,
+        u.password
+    from 
+        users u
+    where 
+        u.email = '$e_mail' and
+        u.password = '$enc_pass'
+    limit 1
+    ";
+     $res_check = pg_query($conn_supa, $sql_check_user);
+      if (pg_num_rows($res_check) > 0){
+       //echo "user exists. go to mail page !!!!";
+        header ('refresh:0;url=main.php'); 
+      } else {
+            echo "verify data";

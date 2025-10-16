@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Regiones</title>
-     <link rel="icon" type="imagen/png" href="src/icons/camino"
+    <title>Registrar País</title>
+    <link rel="icon" type="imagen/png" href="src/icons/camino.png" />
 </head>
 <body>
-    <main>
-        <h2>Registro de Regiones</h2>
+  <br>
+  <center><img src="imagenes/camino.png" width="10%"</center>
+    <form name="login form" action="add_countries.php" method="post">
+      
+  <h2>Register Country</h2>
+  <form action="add_country.php" method="POST">
+    <label>name:</label>
+    <input type="text" name="name" required><br><br>
 
-        <form action="add_regions.php" method="POST">
-            
-            <tr><td><label> Nombre de la región: </label></td></tr>
-            <tr><td><input type="text" id="name" name="name" required><br></label></td></tr>
+    <label>Abreviatura:</label>
+    <input type="text" name="abbr" maxlength="5" required><br><br>
 
-         
-            <tr><td><label for="abbrev">Abreviatura:</label></td></tr>
-            <tr><label><input type="text" id="abbrev" name="abbrev" maxlength="10"><br></label></td></tr>
-
-           
-            <label for="code">Código:</label>
-            <input type="text" id="code" name="code" maxlength="10">
+    <label>Code:</label>
+    <input type="text" name="code" maxlength="10" required><br><br>
 
             
             <label for="country_id">Seleccione el país:</label>
@@ -32,10 +31,7 @@
                 <option value="3">Perú</option>
             </select>
 
-            <button type="submit">Guardar Región</button>
+            <tr><button type="submit">Guardar Región</button></tr>
         </form>
-
-        <a href="main.php">Volver al inicio</a>
-    </main>
 </body>
 </html>
