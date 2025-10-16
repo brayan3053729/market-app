@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Regiones</title>
+     <link rel="icon" type="imagen/png" href="src/icons/camino"
+</head>
+<body>
+    <main>
+        <h2>Registro de Regiones</h2>
+
+        <form action="add_regions.php" method="POST">
+            
+            <tr><td><label> Nombre de la región: </label></td></tr>
+            <tr><td><input type="text" id="name" name="name" required><br></label></td></tr>
+
+         
+            <tr><td><label for="abbrev">Abreviatura:</label></td></tr>
+            <tr><label><input type="text" id="abbrev" name="abbrev" maxlength="10"><br></label></td></tr>
+
+           
+            <label for="code">Código:</label>
+            <input type="text" id="code" name="code" maxlength="10">
+
+            
+            <label for="country_id">Seleccione el país:</label>
+            <select name="country_id" id="country_id" required>
+                <option value="">Seleccione un país</option>
+                <option value="1">Colombia</option>
+                <option value="2">Ecuador</option>
+                <option value="3">Perú</option>
+            </select>
+
+            <button type="submit">Guardar Región</button>
+        </form>
+
+        <a href="main.php">Volver al inicio</a>
+    </main>
+</body>
+</html>
