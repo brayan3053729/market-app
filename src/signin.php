@@ -2,6 +2,10 @@
     //step1.get batabase connection
     require('../config/database.php');
 
+    session_start();
+
+    if(insert($_SESSION))
+
     //step2.get  form-data
     $e_mail =trim($_POST['email']);
     $p_wd = $_POST['passwd'];
@@ -21,6 +25,8 @@
         u.password = '$enc_pass'
     limit 1
     ";
+
+    
      $res_check = pg_query($conn_supa, $sql_check_user);
       if (pg_num_rows($res_check) > 0){
        //echo "user exists. go to mail page !!!!";
