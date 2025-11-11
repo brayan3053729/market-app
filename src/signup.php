@@ -9,7 +9,7 @@
     $id_number= trim ($_POST['idnumber']);
     $e_mail = trim ($_POST['email']);
     $p_wd = trim ($_POST['passwd']);
-
+    $url_photps = "<photps/images (1).png"
     //$enc_pass = password_hash($p_wd,PASSWORD_DEFAULT);
     $enc_pass = md5($p_wd);
     
@@ -36,6 +36,7 @@
                 ider_number,
                 email,
                 password
+                url_photo
                 ) VALUES (
                     '$f_name',
                     '$l_name', 
@@ -43,7 +44,7 @@
                     '$id_number', 
                     '$e_mail', 
                     '$enc_pass'
-                    
+                    '$url_photo'
                     ) "; 
         //step4
         $res = pg_query($conn_supa,$query);

@@ -49,8 +49,7 @@ echo "<tr class='success'>
 <td>" . $row['ide_number'] . "</td>
 <td>" . $row['mobile_number'] . "</td>
 <td>" . $row['status'] . "</td>
-
-<td>
+<td aling= 'center'><img src =". $row['url_photo'] ."<td>
 <a href='#'><img src= 'image/serach.png'  width='20'></a>
 <a href='#'><img src='image/checked.png' width='20'></a>
 <a href='#'><img src='image/delete.png' width='20'></a>
